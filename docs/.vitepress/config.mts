@@ -10,8 +10,44 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      {
+        text: '组件',
+        items: [
+          {
+            text: '全局组件',
+            link: '/components/glob/button',
+          },
+          {
+            text: '常用组件',
+            link: '/components/basic',
+          },
+          {
+            text: '函数式组件',
+            link: '/components/functional/context-menu',
+          },
+        ],
+      },
+      {
+        text: '项目链接',
+        items: [
+          {
+            text: '企业版后台-预览-admin',
+            link: 'https://itadmin-dev.bdotax.com.cn/',
+            target: '_blank',
+          },
+          {
+            text: '专业版后台-预览-admin',
+            link: 'https://eita-admin-dev.bdotax.com.cn/',
+            target: '_blank',
+          },
+          {
+            text: '源码地址',
+            link: 'https://code.webtax.com.cn/webtax_income_tax',
+            target: '_blank',
+          },
+        ],
+      },
     ],
 
     sidebar: [
@@ -194,10 +230,6 @@ export default defineConfig({
         ]
       },
     ],
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
   }
 })
 
