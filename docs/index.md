@@ -4,22 +4,22 @@ layout: home
 
 hero:
   name: "webtax-docs-admin"
-  text: "前端后台开发文档"
-  tagline: My great project tagline
+  text: ""
+  tagline: 
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 全局组件
+      link: /components/glob/button
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 常用组件
+      link: /components/basic
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  # - title: Feature A
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  # - title: Feature B
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  # - title: Feature C
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
