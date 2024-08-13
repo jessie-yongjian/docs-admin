@@ -262,23 +262,23 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 :::
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- | --- | --- |
-| schemas | `Schema[]` | - | - | 表单配置，见下方 FormSchema 配置 |
+| --- | --- | --- | --- | --- |
+| schemas  `Schema[]` | - | - | 表单配置，见下方 FormSchema 配置 |
 | submitOnReset | `boolean` | true | - | 重置时是否提交表单 |
 | labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |
 | wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用 wrapperCol 配置 |
 | baseColProps | `Partial<ColEx>` | - | - | 配置所有选子项的 ColProps，不需要逐个配置，子项也可单独配置优先与全局 |
 | baseRowStyle | `object` | - | - | 配置所有 Row 的 style 样式 |
-| labelWidth | `number | string` | - | - | 扩展 form 组件，增加 label 宽度，表单内所有组件适用，可以单独在某个项覆盖或者禁用 |
+| labelWidth | `number / string` | - | - | 扩展 form 组件，增加 label 宽度，表单内所有组件适用，可以单独在某个项覆盖或者禁用 |
 | mergeDynamicData | `object` | - | - | 额外传递到子组件的参数 values |
 | autoFocusFirstItem | `boolean` | false | - | 是否聚焦第一个输入框，只在第一个表单项为 input 的时候作用 |
 | compact | `boolean` | false | true/false | 紧凑类型表单，减少 margin-bottom |
-| size | `string` | default | `'default' | 'small' | 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |
+| size | `string` | default | `'default' / 'small' / 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |
 | disabled | `boolean` | false | true/false | 向表单内所有组件传递 disabled 属性，自定义组件需自行实现 disabled 接收 |
 | autoSetPlaceHolder | `boolean` | true | true/false | 自动设置表单内组件的 placeholder，自定义组件需自行实现 |
 | rulesMessageJoinLabel | `boolean` | false | true/false | 如果表单项有校验，会自动生成校验信息，该参数控制是否将字段中文名字拼接到自动生成的信息后方 |
 | showAdvancedButton | `boolean` | false | true/false | 是否显示收起展开按钮 |
-| emptySpan | `number | Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |
+| emptySpan | `number / Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |
 | autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |
 | showActionButtonGroup | `boolean` | true | true/false | 是否显示操作按钮(重置/提交) |
 | actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |
@@ -286,9 +286,9 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 | resetButtonOptions | `object` |  | - | 重置按钮配置见下方 ActionButtonOption |
 | showSubmitButton | `boolean` | true | - | 是否显示提交按钮 |
 | submitButtonOptions | `object` |  | - | 确认按钮配置见下方 ActionButtonOption |
-| resetFunc | ` () => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |
-| submitFunc | ` () => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |
-| fieldMapToTime | `[string, [string, string], string?][]` |  | - | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |
+| resetFunc | `() => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |
+| submitFunc | `() => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |
+| fieldMapToTime | `[string, [string, string], string?][]` | - | - | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |
 
 **ColEx**
 
@@ -336,15 +336,15 @@ export interface ButtonProps extends BasicButtonProps {
 ## FormSchema
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | field | `string` | - | - | 字段名 |
 | label | `string` | - | - | 标签名 |
 | subLabel | `string` | - | - | 二级标签名灰色 |
-| suffix | `string | number | ((values: RenderCallbackParams) => string | number);` | - | - | 组件后面的内容 |
+| suffix | `string / number / ((values: RenderCallbackParams) => string / number);` | - | - | 组件后面的内容 |
 | changeEvent | `string` | - | - | 表单更新事件名称 |
-| helpMessage | `string | string[]` | - | - | 标签名右侧温馨提示 |
+| helpMessage | `string / string[]` | - | - | 标签名右侧温馨提示 |
 | helpComponentProps | `HelpComponentProps` | - | - | 标签名右侧温馨提示组件 props,见下方 HelpComponentProps |
-| labelWidth | `string | number` | - | - | 覆盖统一设置的 labelWidth |
+| labelWidth | `string / number` | - | - | 覆盖统一设置的 labelWidth |
 | disabledLabelWidth | `boolean` | false | true/false | 禁用 form 全局设置的 labelWidth,自己手动设置 labelCol 和 wrapperCol |
 | component | `string` | - | - | 组件类型，见下方 ComponentType |
 | componentProps | `any｜()=>{}` | - | - | 所渲染的组件的 props |
@@ -354,15 +354,15 @@ export interface ButtonProps extends BasicButtonProps {
 | itemProps | `any` | - | - | 参考下方 FormItem |
 | colProps | `ColEx` | - | - | 参考上方 actionColOptions |
 | defaultValue | `object` | - | - | 所渲渲染组件的初始值 |
-| render | `(renderCallbackParams: RenderCallbackParams) => VNode | VNode[] | string` | - | - | 自定义渲染组件 |
-| renderColContent | `(renderCallbackParams: RenderCallbackParams) => VNode | VNode[] | string` | - | - | 自定义渲染组件（需要自行包含 formItem） |
+| render | `(renderCallbackParams: RenderCallbackParams) => VNode / VNode[] / string` | - | - | 自定义渲染组件 |
+| renderColContent | `(renderCallbackParams: RenderCallbackParams) => VNode / VNode[] / string` | - | - | 自定义渲染组件（需要自行包含 formItem） |
 | renderComponentContent | `(renderCallbackParams: RenderCallbackParams) => any ｜ string` | - | - | 自定义渲染组内部的 slot |
 | slot | `string` | - | - | 自定义 slot，渲染组件 |
 | colSlot | `string` | - | - | 自定义 slot，渲染组件 （需要自行包含 formItem） |
-| show | ` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,css 控制，不会删除 dom |
-| ifShow | ` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,js 控制，会删除 dom |
-| dynamicDisabled | `boolean | ((renderCallbackParams: RenderCallbackParams) => boolean) ` | - | - | 动态判断当前组件是否禁用 |
-| dynamicRules | `boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判返当前组件你校验规则 |
+| show | `boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,css 控制，不会删除 dom |
+| ifShow | `boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,js 控制，会删除 dom |
+| dynamicDisabled | `boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否禁用 |
+| dynamicRules | `boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判返当前组件你校验规则 |
 
 **RenderCallbackParams**
 
